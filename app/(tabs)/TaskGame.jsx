@@ -1,16 +1,27 @@
-import { View, Text } from 'react-native';
+// imports if react native
+import { View, Text, Alert } from 'react-native';
 import React, { useState, useEffect } from 'react';
 
+// function for page
 export default function TasksGame() {
-  const [points, setPoints] = useState(0); // State to track total points
+  // useState for score
+  const [points, setPoints] = useState(0); 
 
+// intervention to help with addiction (just an example)
+useEffect(() => {
+  let interval = setInterval(() => {      /*repeat */
+    alert('Get off this game!, Also are you cheating?');
+  }, 10000); /*every 10 seconds alert*/ 
+}, []); 
+
+// the tasks
   return (
     <View style={{ padding: 20 }}>
-      <Text style={{ fontSize: 20, fontWeight: 'bold' }}>TasksGame</Text>
-      <Text style={{ fontSize: 16, marginBottom: 10 }}>Points: {points}</Text>
+      <Text style={{ fontSize: 30, fontWeight: 'bold' }}>TasksGame</Text>
+      <Text style={{ fontSize: 35, marginBottom: 10 }}>Points: {points}</Text>
 
       {/* Task buttons */}
-      {/* run task */}
+      {/* runining task */}
       <NewTask
         Name="Run 1 km without using your phone"
         Points={300}
@@ -18,14 +29,14 @@ export default function TasksGame() {
         TxtColor = 'black'
         setPoints={setPoints} 
       />
-       {/* read task */}
+       {/* reading task */}
       <NewTask
         Name="Read 10 pages of a book"
         Points={100}
         BgColor="#8FBC8F"
         setPoints={setPoints} 
       />
-      {/* mediate task */}
+      {/* mediating task */}
         <NewTask
         Name='Meditate for 5 minutes'
         Points = {200}
@@ -34,13 +45,10 @@ export default function TasksGame() {
         setPoints={setPoints}
         />
 
-      
-
-
     </View>
   );
 }
-
+// resuable component for the Tasks/Game
 function NewTask({ Name, Points, BgColor,TxtColor, setPoints }) {
   return (
     <button
