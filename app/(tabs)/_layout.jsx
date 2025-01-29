@@ -1,18 +1,15 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { Tabs, Redirect } from "expo-router";
+import { Tabs } from "expo-router";
+import React from "react";
 
-const TabsLayout = () => {
+export default function TabsLayout() {
   return (
-    <>
-        <Tabs>
-            <Tabs.Screen name="Home"/>
-            <Tabs.Screen name="Events"/>
-            <Tabs.Screen name="TaskGame"/>
-            <Tabs.Screen name="Profile"/>
-        </Tabs>
-    </>
-  )
+    <Tabs>
+      {/* Manually specify the files in your desired order */}
+      <Tabs.Screen name="Home" options={{ tabBarLabel: "Home" }} />
+      <Tabs.Screen name="Events" options={{ tabBarLabel: "Events" }} />
+      <Tabs.Screen name="TaskGame" options={{ tabBarLabel: "Task Game" }} />
+      <Tabs.Screen name="Profile" options={{ tabBarLabel: "Profile" }} />
+    </Tabs>
+  );
 }
 
-export default TabsLayout
