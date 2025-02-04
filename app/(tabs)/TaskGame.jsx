@@ -11,7 +11,7 @@ export default function TasksGame() {
 useEffect(() => {
   let interval = setInterval(() => {      /*repeat */
     alert('Get off this game!, Also are you cheating?');
-  }, 10000); /*every 10 seconds alert*/ 
+  }, 20000); /*every 20 seconds alert*/ 
 }, []); 
 
 // the tasks
