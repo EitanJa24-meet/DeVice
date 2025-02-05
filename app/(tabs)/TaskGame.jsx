@@ -14,6 +14,8 @@ useEffect(() => {
   }, 20000); /*every 20 seconds alert*/ 
 }, []); 
 
+let apiUrl = "https://api-inference.huggingface.co/models/openai-community/gpt2"
+
 // the tasks
   return (
     <View style={{ padding: 20 }}>
