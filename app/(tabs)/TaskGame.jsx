@@ -11,6 +11,13 @@ export default function TasksGame() {
 
   const apiUrl = "https://router.huggingface.co/hf-inference/models/google/gemma-7b";
 
+  // useEffect to show alert every 20 seconds
+  useEffect(() => {
+    let interval = setInterval(() => {      /*repeat */
+      alert('Get off this game!, Also are you cheating?');
+    }, 20000); /*every 20 seconds alert*/ 
+  }, []); 
+  
   // Function to fetch a new challenge
   const fetchData = async () => {
     try {
@@ -34,15 +41,9 @@ export default function TasksGame() {
     }
   };
 
-  // useEffect to show alert every 20 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      Alert.alert('Get off this game!', 'Also, are you cheating?');
-    }, 20000); // every 20 seconds alert
-
     // Cleanup function to clear the interval when the component unmounts
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   // useEffect to fetch a new challenge every 20 seconds
   useEffect(() => {
