@@ -2,7 +2,8 @@
 
 ## ***From Distractions to Interactions***
 
-![DeVice Logo](assets/images/DeVice-Logo-No-BG.png)
+<img src="assets/images/DeVice-Logo-No-BG.png" alt="DeVice Logo" width="200">
+
 
 ## 1\. Introduction 👋
 >DeVice helps teenagers live more meaningful lives by reducing dopamine-driven addiction and fostering healthier relationships with technology, enabling genuine connections, improved mental health, real-world engagement, and long-term focus.
