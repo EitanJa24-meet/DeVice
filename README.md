@@ -44,13 +44,17 @@ npm install
 ```
 npm install -g expo-cli
 ```
+##### 4\. Install AppWrite
+```
+npx expo install react-native-appwrite react-native-url-polyfill
+```
 
-##### 4\. Additional Dependencies 🚦
+##### 5\. Additional Dependencies 🚦
 ```
 npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-linking expo-constants expo-status-bar 
 ```
 
-##### 5\. Run the App 🏁
+##### 6\. Run the App 🏁
 
 ```
 npx expo start

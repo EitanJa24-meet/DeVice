@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 // function for page
-export default function TasksGame() {
+export default function TaskGame() {
   // useState for score
   const [points, setPoints] = useState(0);
   const [challenge, setChallenge] = useState("Loading challenge...");
@@ -14,7 +14,7 @@ export default function TasksGame() {
   // useEffect to show alert every 20 seconds
   useEffect(() => {
     let interval = setInterval(() => {      /*repeat */
-      alert('Get off this game!, Also are you cheating?');
+      Alert.alert('Get off this game!', 'Also are you cheating?');
     }, 20000); /*every 20 seconds alert*/ 
   }, []); 
   
