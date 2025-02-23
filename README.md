@@ -44,14 +44,16 @@ npm install
 ```
 npm install -g expo-cli
 ```
-##### 4\. Install AppWrite
+##### 4\. Install AppWrite and axios 🗂️
 ```
-npx expo install react-native-appwrite react-native-url-polyfill
+npx expo install react-native-appwrite react-native-url-polyfill axios
+
 ```
 
 ##### 5\. Additional Dependencies 🚦
 ```
 npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-linking expo-constants expo-status-bar 
+
 ```
 
 ##### 6\. Run the App 🏁

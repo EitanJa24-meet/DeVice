@@ -9,50 +9,55 @@ export default function TaskGame() {
   const [points, setPoints] = useState(0);
   const [challenge, setChallenge] = useState("Loading challenge...");
 
-  const apiUrl = "https://router.huggingface.co/hf-inference/models/google/gemma-7b";
+  const apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyDXQQ3SsSt3u8SRmjpPyrdZVcyyh3xEKoc"
+;
 
   // useEffect to show alert every 20 seconds
   useEffect(() => {
     let interval = setInterval(() => {      /*repeat */
-      Alert.alert('Get off this game!', 'Also are you cheating?');
+      alert('Get off this game!, Also are you cheating?');
     }, 20000); /*every 20 seconds alert*/ 
   }, []); 
-  
+
   // Function to fetch a new challenge
   const fetchData = async () => {
     try {
-      const result = await axios({
-        url: apiUrl,
-        method: 'POST',
+      const response = await axios.post(apiUrl, {
+        contents: [
+          {
+            parts: [
+              {
+                text: "Generate a short, clear dopamine detox challenge. Keep it under 20 words. Make it actionable and easy with an emphasis on real social interactions."
+              }
+            ]
+          }
+        ]
+      }, {
         headers: {
-          Authorization: "Bearer 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",
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        data: {
-          inputs: "Generate a short, clear dopamine detox challenge. Keep it under 20 words. make it actionable and with an emphsis on social real interactions",
-        },
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        }
       });
-
-      setChallenge(result.data[0].generated_text); // Update state with response
+  
+      // Extract generated text
+      const generatedText = response.data.candidates?.[0]?.content?.parts?.[0]?.text || "Failed to load challenge.";
+      setChallenge(generatedText);
+  
     } catch (error) {
       console.error("Error fetching challenge:", error);
       setChallenge("Failed to load challenge.");
     }
   };
 
-    // Cleanup function to clear the interval when the component unmounts
-  //   return () => clearInterval(interval);
-  // }, []);
 
-  // useEffect to fetch a new challenge every 20 seconds
+  // useEffect to fetch a new challenge every 1 minute
   useEffect(() => {
-    fetchData(); // Fetch initial challenge
-    const interval = setInterval(fetchData, 20000); // Fetch new challenge every 20 seconds
+    fetchData(); // Fetch an initial challenge
+    const interval = setInterval(fetchData, 180000); // Run every 180 seconds (3 minutes)
 
-    // Cleanup function to clear the interval when the component unmounts
-    return () => clearInterval(interval);
+    return () => clearInterval(interval); // Cleanup interval on unmount
   }, []);
+
 
   // the tasks
   return (
@@ -122,3 +127,4 @@ function NewTask({ Name, Points, BgColor, TxtColor, setPoints }) {
     </button>
   );
 }
+
